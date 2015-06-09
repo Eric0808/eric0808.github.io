@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="FastDFS,文件服务器," />
 
 
 
@@ -43,14 +43,12 @@
 
 
 
-  <title> Eric Lu's blog </title>
+  <title> FastDFS-部署与配置 // Eric Lu's blog </title>
 </head>
 
 <body>
 <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -120,9 +118,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -133,9 +131,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/06/09/FastDFS-部署与配置/">
-                FastDFS-部署与配置
-              </a>
+              FastDFS-部署与配置
             
           
         </h1>
@@ -178,8 +174,7 @@
       
 
       
-        
-          <h1 id="fastdfs部署">fastdfs部署</h1><p>fastdfs服务器:<strong><em>**</em></strong></p>
+        <h1 id="fastdfs部署">fastdfs部署</h1><p>fastdfs服务器:<strong><em>**</em></strong></p>
 <p>配置文件目录    /etc/fdfs<br>程序            /usr/bin/fdfs_*<br>文件存储目录   /apps/fastdfs</p>
 <p>storage 和 tracker 为对应的文件目录 </p>
 <h2 id="fastDFS安装">fastDFS安装</h2><p>项目  </p>
@@ -228,288 +223,52 @@
 <p>tracker server上需要调整的文件列表：<br>data/storage_groups_new.dat<br>data/storage_servers_new.dat<br>data/storage_sync_timestamp.dat</p>
 <p>storage server需要调整的文件列表：<br>data/.data<em>init_flag<br>data/sync/${ip_addr}</em>${port}.mark：此类文件，需要将文件名中的IP地址调整过来</p>
 
-        
       
     </div>
 
     <div class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/FastDFS/"> #FastDFS </a>
+          
+            <a href="/tags/文件服务器/"> #文件服务器 </a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/05/Restful-Api-doc-demo/">Restful Api doc demo</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </div>
   </div>
 
 
+
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/05/Restful-Api-doc-demo/">
-                Restful Api doc demo
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-05
-        </span>
-
+      <div class="comments" id="comments">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/blog/">blog</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/05/Restful-Api-doc-demo/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/05/Restful-Api-doc-demo/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>FORMAT: 1A<br>HOST: Api Host</p>
-<h2 id="Group_Question_Api">Group Question_Api</h2><p>提问列表相关的API.</p>
-<h2 id="Questions">Questions</h2><p>提问对象有以下属性:</p>
-<ul>
-<li>id - 问题id</li>
-<li>user_id - 用户id</li>
-<li>subject_id - 学科id</li>
-<li>assign_teacher - 分配老师id</li>
-<li>content - 问题正文</li>
-<li>audio_url - 音频地址</li>
-<li>picture_url - 试题图片地址</li>
-<li>point - 该题完成所获得金币点数</li>
-<li>answer_id - 答案id</li>
-<li>publish_time - 发布时间</li>
-<li>assign_time - 分配时间</li>
-<li>solved_time - 解决时间</li>
-<li>status - 状态id（-1:删除0:等待解答1:未评价2:已评价）</li>
-<li>subject_name - 学科名称</li>
-<li>nick_name - 用户昵称</li>
-<li>avatar - 头像</li>
-<li>human_publish_time - 发布时间（人性化）</li>
-<li>human_assign_time - 分配时间（人性化）</li>
-<li>human_solved_time - 解决时间（人性化）</li>
-<li>status_text - 状态文本</li>
-<li>list_order - 排序编号</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/05/Restful-Api-doc-demo/#more">
-              阅读全文 &raquo;
-            </a>
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           </div>
         
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/04/my-new-post/">
-                HTTP 状态码
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-04
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/blog/">blog</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/04/my-new-post/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/04/my-new-post/"></span>
-            </a>
-          </span>
-          
-        
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="HTTP_状态码">HTTP 状态码</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/04/my-new-post/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/04/hello-world/">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-04
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/04/hello-world/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/04/hello-world/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
 
@@ -530,6 +289,15 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -585,6 +353,17 @@
 
       </div>
 
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#fastdfs部署"><span class="nav-number">1.</span> <span class="nav-text">fastdfs部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fastDFS安装"><span class="nav-number">1.1.</span> <span class="nav-text">fastDFS安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载libfastcommon安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">下载libfastcommon安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装fastDFS"><span class="nav-number">1.1.2.</span> <span class="nav-text">下载安装fastDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要配置"><span class="nav-number">1.1.3.</span> <span class="nav-text">必要配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置及启动Tracker_Server"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">配置及启动Tracker Server</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置及启动Storage_Server"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">配置及启动Storage Server</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx配置"><span class="nav-number">1.2.</span> <span class="nav-text">nginx配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">nginx安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mod_fastdfs-conf_配置"><span class="nav-number">1.2.2.</span> <span class="nav-text">mod_fastdfs.conf 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx配置-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">nginx配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastdfs扩容"><span class="nav-number">1.3.</span> <span class="nav-text">fastdfs扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加tracker"><span class="nav-number">1.3.1.</span> <span class="nav-text">添加tracker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加group"><span class="nav-number">1.3.2.</span> <span class="nav-text">添加group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#group添加storage"><span class="nav-number">1.3.3.</span> <span class="nav-text">group添加storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storage添加空间"><span class="nav-number">1.3.4.</span> <span class="nav-text">storage添加空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据迁移"><span class="nav-number">1.3.5.</span> <span class="nav-text">数据迁移</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
       
 
     </div>
@@ -646,6 +425,145 @@
 
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
@@ -690,15 +608,15 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'eric0808';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
+      var disqus_identifier = '2015/06/09/FastDFS-部署与配置/';
+      var disqus_title = 'FastDFS-部署与配置';
+      var disqus_url = 'http://yoursite.com/2015/06/09/FastDFS-部署与配置/';
 
       (function(){
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }());
     </script>
