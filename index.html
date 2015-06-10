@@ -179,11 +179,18 @@
 
       
         
-          <p>在版本控制系统中最有用的功能之一就是可以”撤销“错误。在git中可以“撤销”非常细微的不同。</p>
+          <h2 id="原文链接">原文链接</h2><p><a href="https://github.com/blog/2019-how-to-undo-almost-anything-with-git/" target="_blank" rel="external">https://github.com/blog/2019-how-to-undo-almost-anything-with-git/</a></p>
+<p>在版本控制系统中最有用的功能之一就是可以”撤销“错误。在git中可以“撤销”非常细微的不同。</p>
 <p>当你做了一次新的commit,git会保存代码库的快照，以便以后可以用git找回项目更早的版本。</p>
 <p>这篇文章将介绍在使用git时“撤销”修改的案例和最佳解决的方法。</p>
-<h2 id="撤销一个“公开”的修改">撤销一个“公开”的修改</h2><p><strong>案例:</strong> 你执行<code>git push</code>，把修改推送到了github，这时你意识到之前的提交有个错误，你可能要撤销哪些提交。</p>
-<p><strong>方法:</strong> <code>git revert &lt;SHA&gt;</code></p>
+<h2 id="撤销一个“公开”的修改">撤销一个“公开”的修改</h2><p><strong>案例：</strong> 你执行  <code>git push</code>，把修改推送到了github，这时你意识到之前的提交有个错误，你可能要撤销哪些提交。</p>
+<p><strong>方法：</strong>   <code>git revert &lt;SHA&gt;</code></p>
+<p><strong>发生了什么：</strong>  <code>git revert</code> 将根据提供的SHA创建一个新的commit，如果旧的提交是“影响性的”，那么新的提交就是“非影响性的”—所有在旧的提交中移除的都会添加在新的提交中并且旧提交的中的添加的也会在新的提交中移除。</p>
+<p>Git的安全性，大多基于“撤销”操作，因为它不修改历史记录—-因此你可以 <code>git push</code> 这个新的“相反”提交来撤销之前错误的commit。</p>
+<h2 id="修改上次commit的信息">修改上次commit的信息</h2><p><strong>案例：</strong>  你刚刚在上次commit信息中打错了字，<code>git commit -m &quot;Fxies bug #42&quot;</code> 在执行 <code>git push</code> 之前你意识到提交信息应该是“Fixes bug #42”。</p>
+<p><strong>方法：</strong>  <code>git comit --amend</code> or <code>git commit --amend -m &quot;Fixes bug #42&quot;</code></p>
+<p><strong>发生了什么：</strong>  <code>git commit --amend</code></p>
+<p>未完待续。。。</p>
 
         
       
